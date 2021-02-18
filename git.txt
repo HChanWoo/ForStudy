@@ -1,0 +1,55 @@
+` git1
+        -  생활코딩 Git1 [ 8 / 8 ]
+        -  git의 전체적인 흐름 파악
+        -  깃의 종류 : 버젼, 백업, 협업
+        ---------------------------------------------------------------------
+        -  version  : 업데이트 내용 확인 가능
+        -  commit : 버젼(업데이트 내용)을 이름 붙여서 올림
+        -  push : github에 저장
+        -  pull : github에서 가져오기
+        -  github desktop / tortoiseGit / Sourcetree(복잡하지만 기능이 단순한 github 보다 기능이 많음)
+
+` git2 - CLI 버전관리
+        -  생활코딩 Git2-CLI 버전관리편 [ 7 / 12 ]
+        -  git 내에서의 add, commit 등의 기본 사용법
+        -  window 깃 설치 [ https://git-scm.com/ ]
+        -  Working tree : 작업하는 곳 / Staging Area : Working tree 중 버젼에 추가하고픈 파일 /
+           Repository : 만들어진 버젼
+        -  git bash 명령어
+                  pwd ( 현재 작업 디렉토리 출력 )
+                  cd / mkdir /  get init .(현재 dir을 버젼 관리한다.)
+                  nano hello1.txt ( hello1.txt 파일이 없으면 생성후 내용 입력 창으로 이동 )
+                  cat [파일명] ( 파일명의 내용을 화면에 출력 )
+                  git status ( git의 상태 출력 )
+                  git add [파일명] ( 파일을 git 의 Staging Area에 추가 )
+                  git commit -m "버젼명" ( Staging Area에 속한 파일과 내용이 버젼명으로 commit 됨 )
+                  git commit -am "[파일명]" ( add 와 commit 을 동시에 한다 - 하지만 한번은 트랙드 되야함 )
+                  git commit ( 기본 에디터를 이용해 여러줄의 커밋 메시지를 입력 가능 )
+                  git log ( commit 한 버젼의 정보 출력 )
+                  git log --stat ( commit 한 버젼의 정보를 상세하게 출력 )
+                  git log -p ( commit 한 버젼의 정보를 상세하게 출력 )
+                  git diff ( 이전 버젼과 현재 working tree 의 차이점 )
+                  git checkout [버젼 아이디] ( git log로 돌아가고 싶은 버젼의 아이디를 이용하여 그 버젼으로 돌아감 )
+                  git checkout master ( 다시 최신 버젼으로 돌아감 )
+                  git config --global core.editor "[에디터 명]" ( commit 시 이용되는 기본 에디터 변경 ( nano )
+                        [ google 에 change git default text editor 검색 ]
+                  git reset --hard [log id] ( 해당 log 지점으로 리셋 => 그 이후 commit 내용들이 삭제됨 )
+                  git revert [log id] ( 해당 id 이전으로 복구한다 => reset과 달리 log가 남음 )
+                        ( 1 2 3 4 버젼이 있을때 1로 돌아가고 싶으면 2를 바로 revert 하지 말고 4 3 2 로 차례로 해야한다 )
+                  git ignore ( 버젼에 추가하고 싶지 않은 파일 관리 )
+                  git tag ( 복잡한 로그 아이디 대신 태그를 붙여 쉽게 조회 가능 ) 
+
+` git3 - CLI 백업
+        -  생활코딩 Git3-CLI 백업 [ 9 / 11 ]
+        -  github/ gitlab 를 이용해 local 저장소와 원격저장소(github/gitlab) 사이의 데이터 공유
+        -  gitlab / github 사용
+        -  git push 순서 : 
+                  수정작업 (nano) => 추가( git add ) => 커밋 ( git commit -am "버젼명") => 푸쉬 ( git push )
+        -  git bash 명령어
+                   git remote add [ 이름 ] [ github / gitlab 주소 ] 
+                            ( 원격저장소 : gitlab / github의 주소와 로컬 저장소 연결 및 이름 붙이기 )
+                   git remote ( 연결된 저장소 이름 출력 )
+                   git remote -v ( 연결된 저장소 주소 출력 )
+                   git push ( github에 push : 처음에는 no upstream branch 가 나오는데 같이 나오는 코드 입력 )
+                   git clone [ gitbhub / gitlab 주소 ] ( github의 자료를 local 저장소로 복제 )
+                   git pull ( 원격 저장소에서 파일을 땡겨옴 )
