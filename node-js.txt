@@ -1,6 +1,6 @@
 ` node js
-        -  생활코딩 WEB2 - Node.js 정리 [ 생활코딩(Node js).txt ]
-        -  cmd
+	-  생활코딩 WEB2 - Node.js 정리 [ 생활코딩(Node js).txt ]
+	-  cmd
 	          pm2 : package manager ( 오류로 꺼지거나 수정했을 때 재시작 해야하는 등을 대신해줌 )
 	          pm2 start main.js --watch ( 자동으로 변경사항 적용 ) [ https://pm2.keymetrics.io/ ]
 	          pm2 log => pm2 monit로 확인 가능
@@ -10,7 +10,8 @@
 	          pm2 start main.js --watch --ignore--watch="[data/* 등의 해당 파일 경로]" --no--  daemon
 	          파일 수정,추가 등의 경우에 꺼졌다 켜지는걸(리로드) 방지하기 위해 사용
 	          경로가 여러개일 경우 "data/* sessions/*" 와 같이 사이에 띄어쓰기를 하는 방식으로 추가 가능
-      - javascript
+			  
+	- javascript
 	          ES6 템플릿 리터럴( ${ [변수명] } ) => "", '' 대신에 `` 사용하여야 사용가능
 	          var [변수명] = require( [Module 명] ) => modeule 불러오기 및 이름 붙이기
 	          writeHead => ( 200 : 성공 / 404 : 실패 / 301 : 주소를 영원히 변경 / 301 : 주소를 redirection )
@@ -18,7 +19,8 @@
 	          delete 같은 기능은 링크(a)보다는 button 이나 from 형태로 제작하기
 	          readfile로 열 경우 내용이 그대로 유출될 수도 있다. (parse 사용?)
 	            => 사용자가 입력할수 있는 정보(주소/입력창) 등에 parse를 이용해 보안을 강화한다.
-     - vscode
+				
+	- vscode
 	          main.js : 웹서버
 	          nodejs>fileread.js : 파일 읽기
 	          syntax>sync.js : 동기와 비동기 그리고 콜백
