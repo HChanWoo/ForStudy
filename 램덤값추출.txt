@@ -1,0 +1,12 @@
+# python 랜덤으로 정해진 범위 내에서 중복없이 여러 숫자 뽑기
+
+import random
+
+random_min = int(input("최소 정수 입력 : "))
+random_max = int(input("최대 정수 입력 : "))
+random_num = int(input("랜덤으로 뽑을 수 : "))
+
+random_list = sorted(random.sample(range(random_min, random_max+1), random_num))
+for i in random_list :
+    print(i)
+print(len(random_list))
