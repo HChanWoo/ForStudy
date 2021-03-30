@@ -27,6 +27,11 @@ for st in splitTxtExBlank :
     else :
         dictTxtExBlank[st]=1
 
+# ( sorted : 내림차순 정리 ) => ( dict : 튜플->딕셔너리)
+# 내림차순으로 정리할시 딕셔너리가 튜플로 바뀜
+dictTxt = dict((a,b) for a,b in sorted(dictTxt.items(), reverse=True, key=lambda item:item[1]))
+dictTxtExBlank = dict((a,b) for a,b in sorted(dictTxtExBlank.items(), reverse=True, key=lambda item:item[1]))
+
 # dictionary 를 dataframe 구조로 바꿈
 pdTxt = pd.DataFrame(list(dictTxt.items()), columns=['단어','빈도수'])
 pdTxtExBlank = pd.DataFrame(list(dictTxtExBlank.items()), columns=['단어','빈도수'])
