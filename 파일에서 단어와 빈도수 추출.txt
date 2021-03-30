@@ -1,0 +1,36 @@
+import pandas as pd
+
+filename = 'C:/Users/DFINE13/OneDrive/바탕 화면/test.txt' # 작업할 파일이 저장된 경로
+fr = open(filename, 'r', encoding='utf-8')
+txt = fr.read()
+fr.close()
+
+splitTxt = txt.split(',') # ','기준으로 문자열 나누기(공백 미제거)
+splitTxtExBlank = txt.replace(' ','').split(',') # ','기준으로 문자열 나누기(공백 제거)
+
+dictTxt = {}
+dictTxtExBlank = {}
+
+for st in splitTxt :
+    if st == '' : 
+        continue
+    if st in dictTxt :
+        dictTxt[st]+=1
+    else :
+        dictTxt[st]=1
+        
+for st in splitTxtExBlank :
+    if st == '' : 
+        continue
+    if st in dictTxtExBlank :
+        dictTxtExBlank[st]+=1
+    else :
+        dictTxtExBlank[st]=1
+
+# dictionary 를 dataframe 구조로 바꿈
+pdTxt = pd.DataFrame(list(dictTxt.items()), columns=['단어','빈도수'])
+pdTxtExBlank = pd.DataFrame(list(dictTxtExBlank.items()), columns=['단어','빈도수'])
+
+# 현재 작업중인 파이썬 파일이 속한 폴더에 해당 파일 이름으로 저장
+pdTxt.to_csv('CSVTxt.csv',header=False,index=False,encoding='utf-8-sig')
+pdTxtExBlank.to_csv('CSVTxtExBlank.csv',header=False,index=False,encoding='utf-8-sig')
