@@ -47,11 +47,6 @@ from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import matplotlib.image as img
 
-filename = 'C:/Users/DFINE13/OneDrive/바탕 화면/test.txt'
-fr = open(filename, 'r', encoding='utf-8')
-txt = fr.read()
-fr.close()
-
 # wordcloud 폰트, 크기 등을 설정
 wc = WordCloud(font_path='SCDream3.otf',
                background_color="white",
