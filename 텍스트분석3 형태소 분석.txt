@@ -1,0 +1,55 @@
+from konlpy.tag import Okt
+from collections import Counter
+
+filepath = 'C:/Users/DFINE13/OneDrive/바탕 화면/한글 더미파일.txt'
+f = open(filepath, 'r', encoding='utf-8')
+txtDummy = f.read()
+f.close()
+
+okt = Okt()
+
+print('\n====================\n명사\n')
+# 명사
+noun = okt.nouns(txtDummy)
+countN = Counter(noun)
+noun_list = countN.most_common(10)
+for v in noun_list :
+    print(v)
+
+print('\n====================\n형태소\n')
+# 형태소 단위 ( 의미를 가지는 최소 단위 )
+morph = okt.morphs(txtDummy)
+countM = Counter(morph)
+morph_list = countM.most_common(10)
+for v in morph_list :
+    print(v)
+
+print('\n====================\n형태소( 품사들로 태깅 )\n')
+# 형태소 단위
+phrase = okt.phrases(txtDummy)
+countP = Counter(phrase)
+phrase_list = countP.most_common(10)
+for v in phrase_list :
+    print(v)
+    
+print('\n====================\n어절\n')
+# 형태소 단위
+pos = okt.pos(txtDummy, norm=True)
+countP2 = Counter(pos)
+pos_list = countP2.most_common(10)
+for v in pos_list :
+    print(v)
+
+'''
+아래와 같은 방법으로 필요한 부분만 추출할 수 있다
+종류 : Noun(명사) / Verb(동사) / Adjective(형용사) / Determiner(관형사) / Adverb(부사) / Conjunction(접속사) / 
+       Exclamation(감탄사) / Josa(조사) / PreEomi(선어말어미) / Eomi(어미) / Suffix(접미사) /
+       Punctuation(구두점) / Foreign(외국어, 한자 및 기타기호) / Alpha(알파벳) / Number(숫자) /
+       Unknown(미등록어) / KoreanParticle(ex. ㅋㅋ) / Hashtag(트위터 해쉬태그 : #히히) / 
+       ScreenName(트위터 아이디 : @example) / Email(이메일 주소) / URL(웹주소)
+       https://docs.google.com/spreadsheets/d/1OGAjUvalBuX-oZvZ_-9tEfYD2gQe7hTGsgUpiiBSXI8/edit#gid=0
+'''
+# 예시
+for i in pos_list :
+    if i[0][1] == 'Josa' :
+        print(i)
