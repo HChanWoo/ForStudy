@@ -8,32 +8,36 @@ f.close()
 
 okt = Okt()
 
-print('\n====================\n명사\n')
-# 명사
+print('\n====================\nnouns : 명사만 추출\n')
+# 텍스트에서 명사만 추출
 noun = okt.nouns(txtDummy)
 countN = Counter(noun)
 noun_list = countN.most_common(10)
 for v in noun_list :
     print(v)
 
-print('\n====================\n형태소\n')
-# 형태소 단위 ( 의미를 가지는 최소 단위 )
-morph = okt.morphs(txtDummy)
+print('\n====================\nmorphs : 형태소\n')
+# 형태소 단위로 나눔 ( 의미를 가지는 최소 단위 )
+# 파라미터의 norm은 문장을 정규화, stem은 각 단어에서 어간을 추출한다.
+morph = okt.morphs(txtDummy) # 파라미터 사용 방법 : morphs(txtDummy, '사용할 파라미터'=True)
 countM = Counter(morph)
 morph_list = countM.most_common(10)
 for v in morph_list :
     print(v)
 
-print('\n====================\n형태소( 품사들로 태깅 )\n')
-# 형태소 단위
+print('\n====================\nphrases : 형태소\n')
+# 형태소 단위, 텍스트에서 어절을 추출
 phrase = okt.phrases(txtDummy)
 countP = Counter(phrase)
 phrase_list = countP.most_common(10)
 for v in phrase_list :
     print(v)
     
-print('\n====================\n어절\n')
-# 형태소 단위
+print('\n====================\npos : 형태소\n')
+'''
+형태소 단위, 각 품사를 태깅하는 함수, 주어진 텍스트를 형태소 단위로 나눈 후 나뉘어진 형태소를 해당하는 품사와 
+함께 리스트화한다. 파라미터에는 norm, stem, join(나눠진 형태소와 품사를 형태소/품사 형태로 리스트화)가 있다.
+'''
 pos = okt.pos(txtDummy, norm=True)
 countP2 = Counter(pos)
 pos_list = countP2.most_common(10)
@@ -50,6 +54,7 @@ for v in pos_list :
        https://docs.google.com/spreadsheets/d/1OGAjUvalBuX-oZvZ_-9tEfYD2gQe7hTGsgUpiiBSXI8/edit#gid=0
 '''
 # 예시
+print('\n====================\npos : 원하는 종류 추출 예\n')
 for i in pos_list :
     if i[0][1] == 'Josa' :
         print(i)
