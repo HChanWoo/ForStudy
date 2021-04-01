@@ -1,0 +1,12 @@
+from ckonlpy.tag import Twitter
+
+twitter = Twitter()
+
+print('origin konlpy\n')
+print(twitter.pos(testStr))
+
+print('\n\t============================================================================================\n')
+twitter.add_dictionary(['안녕이라고','말해볼까'],'Noun')
+testStr = '내가 맘대로 안녕이라고 말해볼까?'
+print('customized konlpy\n')
+print(twitter.pos(testStr))
